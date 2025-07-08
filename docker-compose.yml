@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  hadoop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hadoopnode
+    hostname: hadoopnode
+    ports:
+      - "2222:22"     # SSH
+      - "9870:9870"   # NameNode Web UI
+      - "9864:9864"   # DataNode Web UI
+      - "8042:8042"   # NodeManager Web UI
+      - "9000:9000"   # HDFS
+    networks:
+      - hadoop-net
+    tty: true
+    stdin_open: true
+    command: /bin/bash -c "/setup-hadoop.sh && /start-hadoop.sh"
+
+networks:
+  hadoop-net:
+    driver: bridge
