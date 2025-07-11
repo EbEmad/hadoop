@@ -8,4 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print everything is ok
-        run: echo " welcome in world of github actions" 
+        run: echo " welcome in world of github actions"
+      - name: checkout repo
+        uses: actions/checkout@v4.2.2
+      - name: list repo
+        run: ls -al
+        
