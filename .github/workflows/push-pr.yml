@@ -22,5 +22,7 @@ jobs:
         steps:
             - name: checkout code
               uses: actions/checkout@v4.2.2
+            - name: Install Docker Compose
+              run: sudo apt-get update && sudo apt-get install -y docker-compose
             - name: run tests
               run: docker-compose up --abort-on-container-exit --exit-code-from hadoop
