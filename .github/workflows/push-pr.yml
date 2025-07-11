@@ -26,3 +26,5 @@ jobs:
               run: sudo apt-get update && sudo apt-get install -y docker-compose
             - name: run tests
               run: docker-compose up --abort-on-container-exit --exit-code-from hadoop
+            - name: stop containers
+              run: docker-compose down
