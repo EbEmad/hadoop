@@ -23,4 +23,4 @@ jobs:
             - name: checkout code
               uses: actions/checkout@v4.2.2
             - name: run tests
-              run: docker-compose up
+              run: docker-compose up --abort-on-container-exit --exit-code-from hadoop
